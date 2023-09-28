@@ -1,0 +1,7 @@
+Instructions
+Specifications:
+
+Alter your existing container by copying it and renaming it.
+Replace the array with an arrayList container
+Perform CRUD operations the same as last assignment but use the functionality of an array list, and make the size DYNAMIC.
+100 Points Minor Grade
