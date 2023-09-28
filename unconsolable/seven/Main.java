@@ -6,6 +6,7 @@
  */
 package unconsolable.seven;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Main {
 
@@ -51,8 +52,8 @@ public class Main {
     }
 
     public static void main(String args[]) {
-        // Create a ConsoleShelf object (Michelel Luo)
-        Console[] newConsoleShelf = new Console[12];
+        // Changed to ArrayList (Michelle Luo)
+        ArrayList<Console> newConsoleShelf = new ArrayList<Console>();
         ConsoleShelf consoleShelf = new ConsoleShelf(1.8, 0, false, "gray", newConsoleShelf);
 
         Scanner userInputObject = new Scanner(System.in);
@@ -83,7 +84,7 @@ public class Main {
                 }
                 //Update a Console on the Shelf (Pettrus Konnoth and Michelle Luo)
                 case 3 -> {
-                    int indexToUpdate = getUserInputForIndex("Enter the index of the console to update: ") -1;
+                    int indexToUpdate = getUserInputForIndex("Enter the index of the console to update: ");
                     //if the index is within the twelve limit of a shelf:
                     if (indexToUpdate >= 0 && indexToUpdate < 11) {
                         consoleShelf.update(indexToUpdate,newConsole());
@@ -95,7 +96,7 @@ public class Main {
                 case 4 -> {
                     int indexToDelete = getUserInputForIndex("Enter the index of the console to delete: ");
                     //if the index is within the numbers of console existing on the shelf:
-                    if (indexToDelete >= 0 && indexToDelete < consoleShelf.getAvailableSpace()) {
+                    if (indexToDelete >= 0 && indexToDelete < consoleShelf.getSizeArrayList()) {
                         consoleShelf.delete(indexToDelete);
                         System.out.println("Console deleted from the shelf.");
                     } else {

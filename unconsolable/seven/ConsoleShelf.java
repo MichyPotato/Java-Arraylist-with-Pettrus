@@ -7,7 +7,7 @@
 
  //imports
 package unconsolable.seven;
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class ConsoleShelf {
 
@@ -16,12 +16,12 @@ public class ConsoleShelf {
     private int availableSpace;
     private boolean isFull;
     private String color;
-    private Console[] consoleArray;
+    private ArrayList<Console> consoleArrayList;
 
-    //set up initial consoleArray with empty values (Michelle Luo)
-    public Console[] consoleInitialization(){
-        Console[] consoleArray = new Console[12];
-        return consoleArray;
+    //set up initial consoleArrayList with empty values (Michelle Luo)
+    public ArrayList<Console> consoleInitialization(){
+        ArrayList<Console> consoleArrayList = new ArrayList<Console>();
+        return consoleArrayList;
     }
     
     //default constructor console shelf (Pettrus Konnoth)
@@ -30,7 +30,7 @@ public class ConsoleShelf {
         this.availableSpace = 0;
         this.isFull = false;
         this.color = "black";
-        this.consoleArray = consoleInitialization();
+        this.consoleArrayList = consoleInitialization();
     }
 
     //partial constructor console shelf (Pettrus Konnoth)
@@ -39,80 +39,41 @@ public class ConsoleShelf {
         this.availableSpace = 0;
         this.isFull = false;
         this.color = "black";
-        this.consoleArray = consoleInitialization();
+        this.consoleArrayList = consoleInitialization();
     }
 
     //full constructor console shelf (Michelle Luo)
-    public ConsoleShelf(double height, int availableSpace, boolean isFull, String color, Console[] consoleArray){
+    public ConsoleShelf(double height, int availableSpace, boolean isFull, String color, ArrayList<Console> consoleArrayList){
         this.height = height;
         this.availableSpace = availableSpace;
         this.isFull = isFull;
         this.color = color;
-        this.consoleArray = consoleInitialization();
+        this.consoleArrayList = consoleArrayList;
     }
 
     // creating the crud functionality
 
-    // creating the create method for adding consoles to the shelf or thown an error(Pettrus Konnoth)
+    //add new console to arrayList (Michelle Luo)
     public void createConsole(Console console){
-        if (this.availableSpace<consoleArray.length){
-            this.consoleArray[this.availableSpace] = console;
-            this.availableSpace++;
-        }
-        else{
-            System.out.println("The shelf is full");
-        }
+            this.consoleArrayList.add(console);
     }
-    //creating the read method for reading the consoles on the shelf checks if console on shelf and returns the console (Pettrus Konnoth)
+    //read the arrayList (Michelle Luo)
     public void readConsole() {
-        if (this.availableSpace > 0) {
-            // Use a for loop to iterate up to availableSpace
-            for (int i = 0; i < availableSpace; i++) {
-                System.out.println(consoleArray[i]);
-            }
-        } else {
-            System.out.println("There are no consoles on the shelf");
+        String s = "";
+        for (int i = 0; i < consoleArrayList.size(); i++) {
+                s += this.consoleArrayList.get(i);
         }
+        System.out.println(s);
     }
 
-    //creating the update method for updating a console on the shelf (Pettrus Konnoth)
+    //update an element in the arrayList at the index given in the parameter (Michelle Luo)
     public void update(int index, Console updatedConsole) {
-        // Check if the provided index is valid
-        if (index >= 0 && index < 11) {
-            // Checks if there is no object to update (Michelle Luo)
-            if (consoleArray[index]== null){
-                System.out.println("No Console to Update Here!");
-            }else{
-            //if there is an object, updates it
-            consoleArray[index] = updatedConsole;
-            System.out.println("Console at index " + index + " updated.");
-            }
-        } else {
-            // Invalid index provided, provide feedback to the user
-            System.out.println("Invalid index. No console updated.");
-        }
+        this.consoleArrayList.set(index, updatedConsole);
     }
 
-    //creating the delete method for deleting a console from the shelf (Pettrus Konnoth)
+    //delete an element in the arraylist at the given parametric index (Michelle Luo)
     public void delete(int index) {
-        // Check if the provided index is valid
-        if (index >= 0 && index < availableSpace) {
-            // Shift the consoles in the array to remove the console at the specified index
-            for (int i = index; i < availableSpace - 1; i++) {
-                consoleArray[i] = consoleArray[i + 1];
-            }
-            // Set the last slot to null and decrement availableSpace
-            consoleArray[availableSpace - 1] = null;
-            availableSpace--;
-
-            // Update isFull status
-            isFull = (availableSpace == consoleArray.length);
-
-            System.out.println("Console at index " + index + " deleted.");
-        } else {
-            // Invalid index provided, provide feedback to the user
-            System.out.println("Invalid index. No console deleted.");
-        }
+        this.consoleArrayList.remove(index);
     }
 
     //creating the getters and setters for the shelf (Pettrus Konnoth)
@@ -140,13 +101,17 @@ public class ConsoleShelf {
     public void setColor(String color) {
         this.color = color;
     }
-    public Console[] getConsoleArray() {
-        return this.consoleArray;
+    //changed getters and setters for array to ArrayList (Michelle Luo)
+    public ArrayList<Console> getconsoleArrayList() {
+        return this.consoleArrayList;
     }
-    public void setConsoleArray(Console[] consoleArray) {
-        this.consoleArray = consoleArray;
+    public void setconsoleArrayList(ArrayList<Console> consoleArrayList) {
+        this.consoleArrayList = consoleArrayList;
     }
 
+    public int getSizeArrayList(){
+        return this.consoleArrayList.size();
+    }
     // toString method (Pettrus Konnoth)
     @Override
     public String toString(){
@@ -156,11 +121,11 @@ public class ConsoleShelf {
                 this.isFull + " and is " +
                 this.color + ".";
         //Added Printing of COnsoles on ConsoleShelf (Michelle Luo)
-        if (this.availableSpace > 0) {
-            // Use a for loop to iterate up to availableSpace
+        if (consoleArrayList.size() > 0) {
+            // Use a for loop to iterate through the arrayList (Michelle Luo)
             s += "\n It also has the following consoles on it: \n";
-            for (int i = 0; i < availableSpace; i++) {
-                s += consoleArray[i];
+            for (int i = 0; i < consoleArrayList.size(); i++) {
+                s += this.consoleArrayList.get(i);
             }
         }else{
             s += "\nNo Consoles are stored on this Shelf.";
