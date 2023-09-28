@@ -1,2 +1,2 @@
-# ew-an-array-list
-Array List of Console made with Pettrus Konnoth
+# Java Classes with full CRUD capabilities using ArrayLists
+Array List of Video Game Consoles made with Pettrus Konnoth
