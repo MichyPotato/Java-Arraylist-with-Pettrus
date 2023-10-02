@@ -12,7 +12,8 @@ public class Console {
     // define variables (Michelle Luo)
     private String name;
     private Brand brand;
-    private double storage;
+    private double storage; 
+    private float cost;
     private int energyConsumption;
     private boolean hasColorDisplay;
 
@@ -21,6 +22,7 @@ public class Console {
         this.name = "Oculus Quest 2";
         this.brand = Brand.META;
         this.storage = 0;
+        this.cost = 0;
         this.energyConsumption = 0;
         this.hasColorDisplay = false;
     }
@@ -29,6 +31,7 @@ public class Console {
         this.name = name;
         this.brand = Brand.META;
         this.storage = 0;
+        this.cost = 0;
         this.energyConsumption = 0;
         this.hasColorDisplay = false;
     }
@@ -37,6 +40,7 @@ public class Console {
         this.name = name;
         this.brand = brand;
         this.storage = 0;
+        this.cost = 0;
         this.energyConsumption = 0;
         this.hasColorDisplay = false;
     }
@@ -45,24 +49,36 @@ public class Console {
         this.name =  name;
         this.brand = brand;
         this.storage = storage;
+        this.cost = 0;
         this.energyConsumption = 0;
         this.hasColorDisplay = true;
     }
 
     //partial constructor - 4 parameters (Michelle Luo)
-    public Console(String name, Brand brand, double storage, int energyConsumption){
+    public Console(String name, Brand brand, double storage, float cost){
         this.name =  name;
         this.brand = brand;
         this.storage = storage;
+        this.cost = cost;
+        this.energyConsumption = 0;
+        this.hasColorDisplay = true;
+    }
+    //partial constructor - 4 parameters (Michelle Luo)
+    public Console(String name, Brand brand, double storage, float cost, int energyConsumption){
+        this.name =  name;
+        this.brand = brand;
+        this.storage = storage;
+        this.cost = cost;
         this.energyConsumption = energyConsumption;
         this.hasColorDisplay = true;
     }
 
     //partial constructor - 5 parameters (Michelle Luo)
-    public Console(String name, Brand brand, double storage, int energyConsumption, boolean hasColorDisplay){
+    public Console(String name, Brand brand, double storage, float cost, int energyConsumption, boolean hasColorDisplay){
         this.name =  name;
         this.brand = brand;
         this.storage = storage;
+        this.cost = cost;
         this.energyConsumption = energyConsumption;
         this.hasColorDisplay = hasColorDisplay;
     }
@@ -107,6 +123,14 @@ public class Console {
     public void setHasColorDisplay(boolean hasColorDisplay) {
         this.hasColorDisplay = hasColorDisplay;
     }
+    //creating getters (Pettrus Konnoth) (Michelle Luo put minor edits)
+    public float getCost() {
+        return this.cost;
+    }
+    //creating setters (Pettrus Konnoth)
+    public void setCost(float cost) {
+        this.cost = cost;
+    }
 
     // creating the toString method (Pettrus Konnoth)
     @Override
@@ -122,6 +146,7 @@ public class Console {
                 "Name: " + this.name + "\n" +
                 "Brand: " + this.brand + "\n" +
                 "Storage: " + this.storage + "\n" +
+                "Cost: " + this.cost + "\n" +
                 "Energy Consumption: " + this.energyConsumption + "\n" +
                 "Does it display in Color: " + colorDisplayString + "\n";
     }
