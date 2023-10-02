@@ -35,6 +35,12 @@ public class Main {
         if (inputConsoleScanner.hasNextDouble()) {
             storage = inputConsoleScanner.nextDouble();
         }
+        //Michelle Luo
+        System.out.println("Enter in the cost of the console: ");
+        float cost = 0;
+        if (inputConsoleScanner.hasNextFloat()) {
+            cost = inputConsoleScanner.nextFloat();
+        }
 
         System.out.print("Enter the energy consumption of the console: ");
         int energyConsumption = 0;
@@ -47,7 +53,7 @@ public class Main {
         if (inputConsoleScanner.hasNextBoolean()) {
             hasColorDisplay = inputConsoleScanner.nextBoolean();
         }
-        Console newConsole = new Console(name, brand, storage, energyConsumption, hasColorDisplay);
+        Console newConsole = new Console(name, brand, storage, cost, energyConsumption, hasColorDisplay);
         return newConsole;
     }
 
