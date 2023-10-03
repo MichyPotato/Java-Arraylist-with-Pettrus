@@ -42,47 +42,51 @@ public class Main {
                 System.out.println("Invalid brand. Please enter a valid brand from the given options.");
             }
         } while (!isValidBrand);
-
         double storage = 0;
-
+        boolean isValidStorage = false;
         do {
             System.out.print("Enter the storage capacity of the console: ");
 
             if (inputConsoleScanner.hasNextDouble()) {
                 storage = inputConsoleScanner.nextDouble();
+                isValidStorage = true;
                 break; // Exit the loop when a valid double is provided
             } else {
                 System.out.println("Invalid storage capacity. Please enter a valid storage capacity.");
                 inputConsoleScanner.next(); // Consume the invalid input to prevent an infinite loop
             }
-        } while (true);
+        } while (!isValidStorage);
         //Michelle Luo
 
         float cost = 0;
+        boolean isValidCost = false;
         do {
             System.out.print("Enter the cost of the console: ");
             //pettrus Konnoth added minor changes
             if (inputConsoleScanner.hasNextFloat()) {
                 cost = inputConsoleScanner.nextFloat();
+                isValidCost = true;
                 break; // Exit the loop when a valid float is provided
             } else {
                 System.out.println("Invalid cost. Please enter a valid cost.");
                 inputConsoleScanner.next(); // Consume the invalid input to prevent an infinite loop
             }
-        } while (true);
+        } while (!isValidCost);
 
         int energyConsumption = 0;
+        boolean isValidEnergyConsumption = false;
         do {
             System.out.print("Enter the energy consumption of the console: ");
 
             if (inputConsoleScanner.hasNextInt()) {
                 energyConsumption = inputConsoleScanner.nextInt();
+                isValidEnergyConsumption = true;
                 break; // Exit the loop when a valid int is provided
             } else {
                 System.out.println("Invalid energy consumption. Please enter a valid energy consumption.");
                 inputConsoleScanner.next(); // Consume the invalid input to prevent an infinite loop
             }
-        } while (true);
+        } while (!isValidEnergyConsumption);
 
 
 
@@ -104,7 +108,7 @@ public class Main {
 
         do {
             //CRUD Menu (Michelle Luo)
-            System.out.println("Choose a CRUD Option for the Array:");
+            System.out.println("Choose a CRUD Option for the ArrayList:");
             System.out.println("1. Create a new Console to be added to the shelf");
             System.out.println("2. Read off all the Consoles on the Shelf");
             System.out.println("3. Update a specific Console on the shelf");
