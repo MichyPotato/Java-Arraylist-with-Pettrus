@@ -1,6 +1,6 @@
 /* Michelle Luo and Pettrus Konnoth
  * AP CSA
- * UnConsolable: unconsolable.seven.Main
+ * UnConsolable: Main
  * October 2nd
  * Period 7
  */
