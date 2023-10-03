@@ -1,6 +1,6 @@
 /* Michelle Luo and Pettrus Konnoth
  * AP CSA
- * UnConsolable: ConsoleShelf
+ * UnConsolable: ConsoleDisplayStand
  * October 2nd
  * Period 7
  */
@@ -10,7 +10,7 @@ package unconsolable.seven;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConsoleShelf {
+public class ConsoleDisplayStand{
 
     //fields for the shelf variable def (Michelle Luo)
     private double height;
@@ -25,7 +25,7 @@ public class ConsoleShelf {
     }
     
     //default constructor console shelf (Pettrus Konnoth)
-    public ConsoleShelf(){
+    public ConsoleDisplayStand(){
         this.height = 0;
         this.availableSpace = 0;
         this.isFull = false;
@@ -62,7 +62,7 @@ public class ConsoleShelf {
 
 
     //partial constructor console shelf (Pettrus Konnoth)
-    public ConsoleShelf(double height){
+    public ConsoleDisplayStand(double height){
         this.height = height;
         this.availableSpace = 0;
         this.isFull = false;
@@ -71,7 +71,7 @@ public class ConsoleShelf {
     }
 
     //full constructor console shelf (Michelle Luo)
-    public ConsoleShelf(double height, int availableSpace, boolean isFull, String color, ArrayList<Console> consoleArrayList){
+    public ConsoleDisplayStand(double height, int availableSpace, boolean isFull, String color, ArrayList<Console> consoleArrayList){
         this.height = height;
         this.availableSpace = availableSpace;
         this.isFull = isFull;
@@ -148,7 +148,7 @@ public class ConsoleShelf {
                 this.availableSpace + " spaces left, is " +
                 this.isFull + " and is " +
                 this.color + ".";
-        //Added Printing of COnsoles on ConsoleShelf (Michelle Luo)
+        //Added Printing of COnsoles on ConsoleDisplayStand (Michelle Luo)
         if (consoleArrayList.size() > 0) {
             // Use a for loop to iterate through the arrayList (Michelle Luo)
             s += "\n It also has the following consoles on it: \n";

@@ -100,8 +100,8 @@ public class Main {
 
     public static void main(String[] args) {
         // Changed to ArrayList (Michelle Luo)
-        ArrayList<Console> newConsoleShelf = new ArrayList<Console>();
-        ConsoleShelf consoleShelf = new ConsoleShelf(1.8, 0, false, "gray", newConsoleShelf);
+        ArrayList<Console> newConsoleDisplayStand = new ArrayList<Console>();
+        ConsoleDisplayStand consoleDisplayStand = new ConsoleDisplayStand(1.8, 0, false, "gray", newConsoleDisplayStand);
 
         Scanner userInputObject = new Scanner(System.in);
         int userInput;
@@ -113,7 +113,7 @@ public class Main {
             System.out.println("2. Read off all the Consoles on the Shelf");
             System.out.println("3. Update a specific Console on the shelf");
             System.out.println("4. Delete a Console from the shelf");
-            System.out.println("5. Print ConsoleShelf");
+            System.out.println("5. Print ConsoleDisplayStand");
             System.out.println("6. find the average price of the consoles on the shelf");
             System.out.println("7. see the average rating of the consoles on the shelf");
             System.out.println("8. Exit the program");
@@ -123,20 +123,20 @@ public class Main {
             switch (userInput) {
                 //Create a new Console on the shelf (Pettrus Konnoth) (Michelle Luo cleaned it up)
                 case 1 -> {
-                    // add a new console to the consoleShelf Object 
-                    consoleShelf.createConsole(newConsole()); // Add the new console to the shelf
+                    // add a new console to the consoleDisplayStand Object 
+                    consoleDisplayStand.createConsole(newConsole()); // Add the new console to the shelf
                     System.out.println("Console added to the shelf.\n");
                 }
                 //Read off all the Consoles on the shelf (Michelle Luo)
                 case 2 -> {
-                    consoleShelf.readConsole();
+                    consoleDisplayStand.readConsole();
                 }
                 //Update a Console on the Shelf (Pettrus Konnoth and Michelle Luo)
                 case 3 -> {
                     int indexToUpdate = getUserInputForIndex("Enter the index of the console to update: ");
                     //if the index is within the twelve limit of a shelf:
                     if (indexToUpdate >= 0 && indexToUpdate < 11) {
-                        consoleShelf.update(indexToUpdate,newConsole());
+                        consoleDisplayStand.update(indexToUpdate,newConsole());
                     } else {
                         System.out.println("Invalid index. No console updated.");
                     }
@@ -145,8 +145,8 @@ public class Main {
                 case 4 -> {
                     int indexToDelete = getUserInputForIndex("Enter the index of the console to delete: ");
                     //if the index is within the numbers of console existing on the shelf:
-                    if (indexToDelete >= 0 && indexToDelete < consoleShelf.getSizeArrayList()) {
-                        consoleShelf.delete(indexToDelete);
+                    if (indexToDelete >= 0 && indexToDelete < consoleDisplayStand.getSizeArrayList()) {
+                        consoleDisplayStand.delete(indexToDelete);
                         System.out.println("Console deleted from the shelf.");
                     } else {
                         System.out.println("Invalid index. No console deleted.");
@@ -154,14 +154,14 @@ public class Main {
                 }
                 //Print out the Container Object (Michelle Luo)
                 case 5 -> {
-                    System.out.println("Printing consoleShelf");
-                    System.out.println(consoleShelf);
+                    System.out.println("Printing consoleDisplayStand");
+                    System.out.println(consoleDisplayStand);
                     System.out.println("\n");
                 }
 
                 case 6 -> {
                     // Calculate and print the average price (Pettrus Konnoth)
-                    float averagePrice = consoleShelf.averagePrice();
+                    float averagePrice = consoleDisplayStand.averagePrice();
                     System.out.println("Average Price of Consoles in shelf: $" + averagePrice);
                     System.out.println("\n");
 
@@ -169,7 +169,7 @@ public class Main {
                 //case 7 for the rating of the consoles (Pettrus Konnoth)
                 case 7 -> {
                     // Get the ratings for each console
-                    List<Float> consoleRatings = consoleShelf.getConsoleRatings();
+                    List<Float> consoleRatings = consoleDisplayStand.getConsoleRatings();
 
                     // Print the ratings for each console
                     for (int i = 0; i < consoleRatings.size(); i++) {
