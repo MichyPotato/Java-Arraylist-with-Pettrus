@@ -155,13 +155,13 @@ public class Main {
                 }
 
                 case 6 -> {
-                    // Calculate and print the average price
+                    // Calculate and print the average price (Pettrus Konnoth)
                     float averagePrice = consoleShelf.averagePrice();
                     System.out.println("Average Price of Consoles in shelf: $" + averagePrice);
                     System.out.println("\n");
 
                 }
-                //case 7 for the rating of the consoles (Michelle Luo)
+                //case 7 for the rating of the consoles (Pettrus Konnoth)
                 case 7 -> {
                     // Get the ratings for each console
                     List<Float> consoleRatings = consoleShelf.getConsoleRatings();
