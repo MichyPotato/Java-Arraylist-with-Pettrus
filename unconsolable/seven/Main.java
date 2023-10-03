@@ -4,6 +4,7 @@
  * October 2nd
  * Period 7
  */
+
 package unconsolable.seven;
 import java.util.Scanner;
 import java.util.ArrayList;

@@ -12,7 +12,8 @@ public class Console {
     // define variables (Michelle Luo)
     private String name;
     private Brand brand;
-    private double storage; 
+    private double storage;
+    //added cost with this version!  
     private float cost;
     private int energyConsumption;
     private boolean hasColorDisplay;
@@ -63,7 +64,7 @@ public class Console {
         this.energyConsumption = 0;
         this.hasColorDisplay = true;
     }
-    //partial constructor - 4 parameters (Michelle Luo)
+    //partial constructor - 5 parameters (Michelle Luo)
     public Console(String name, Brand brand, double storage, float cost, int energyConsumption){
         this.name =  name;
         this.brand = brand;
@@ -73,7 +74,7 @@ public class Console {
         this.hasColorDisplay = true;
     }
 
-    //partial constructor - 5 parameters (Michelle Luo)
+    //partial constructor - 6 parameters (Michelle Luo)
     public Console(String name, Brand brand, double storage, float cost, int energyConsumption, boolean hasColorDisplay){
         this.name =  name;
         this.brand = brand;
@@ -123,11 +124,11 @@ public class Console {
     public void setHasColorDisplay(boolean hasColorDisplay) {
         this.hasColorDisplay = hasColorDisplay;
     }
-    //creating getters (Pettrus Konnoth) (Michelle Luo put minor edits)
+    //creating getters (Michelle luo)
     public float getCost() {
         return this.cost;
     }
-    //creating setters (Pettrus Konnoth)
+    //creating setters (Michelle Luo)
     public void setCost(float cost) {
         this.cost = cost;
     }
