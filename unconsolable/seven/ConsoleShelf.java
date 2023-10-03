@@ -1,7 +1,7 @@
 /* Michelle Luo and Pettrus Konnoth
  * AP CSA
  * UnConsolable: unconsolable.seven.Main
- * September 28th
+ * October 2nd
  * Period 7
  */
 
@@ -20,8 +20,7 @@ public class ConsoleShelf {
 
     //set up initial consoleArrayList with empty values (Michelle Luo)
     public ArrayList<Console> consoleInitialization(){
-        ArrayList<Console> consoleArrayList = new ArrayList<Console>();
-        return consoleArrayList;
+        return new ArrayList<Console>();
     }
     
     //default constructor console shelf (Pettrus Konnoth)
@@ -60,8 +59,8 @@ public class ConsoleShelf {
     //read the arrayList (Michelle Luo)
     public void readConsole() {
         String s = "";
-        for (int i = 0; i < consoleArrayList.size(); i++) {
-                s += this.consoleArrayList.get(i);
+        for (Console console : consoleArrayList) {
+            s += console;
         }
         System.out.println(s);
     }

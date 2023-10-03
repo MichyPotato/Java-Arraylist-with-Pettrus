@@ -1,7 +1,7 @@
 /* Michelle Luo and Pettrus Konnoth
  * AP CSA
  * UnConsolable: unconsolable.seven.Main
- * September 24th
+ * October 2nd
  * Period 7
  */
 package unconsolable.seven;
@@ -14,8 +14,7 @@ public class Main {
     private static int getUserInputForIndex(String message) {
         Scanner inputScanner = new Scanner(System.in);
         System.out.print(message);
-        int intInput = inputScanner.nextInt();
-        return intInput;
+        return inputScanner.nextInt();
     }
 
     //Makes a new Console Object based on user input (Pettrus Konnoth)
@@ -25,39 +24,74 @@ public class Main {
         System.out.print("Enter the name of the console: ");
         String name = inputConsoleScanner.nextLine();
 
-        System.out.print("Enter the brand of the console (XBOX, PLAYSTATION, NINTENDO, ATARI, SEGA, META): ");
-        String brandStr = inputConsoleScanner.nextLine();
 
-        Brand brand = Brand.valueOf(brandStr.toUpperCase());
+        Brand brand = null;
+        boolean isValidBrand = false;
 
-        System.out.print("Enter the storage capacity of the console: ");
+        do {
+            System.out.print("Enter the brand of the console (XBOX, PLAYSTATION, NINTENDO, ATARI, SEGA, META): ");
+            String brandStr = inputConsoleScanner.nextLine().toUpperCase();
+
+            try {
+                brand = Brand.valueOf(brandStr);
+                isValidBrand = true;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Invalid brand. Please enter a valid brand from the given options.");
+            }
+        } while (!isValidBrand);
+
         double storage = 0;
-        if (inputConsoleScanner.hasNextDouble()) {
-            storage = inputConsoleScanner.nextDouble();
-        }
-        //Michelle Luo
-        System.out.println("Enter in the cost of the console: ");
-        float cost = 0;
-        if (inputConsoleScanner.hasNextFloat()) {
-            cost = inputConsoleScanner.nextFloat();
-        }
 
-        System.out.print("Enter the energy consumption of the console: ");
+        do {
+            System.out.print("Enter the storage capacity of the console: ");
+
+            if (inputConsoleScanner.hasNextDouble()) {
+                storage = inputConsoleScanner.nextDouble();
+                break; // Exit the loop when a valid double is provided
+            } else {
+                System.out.println("Invalid storage capacity. Please enter a valid storage capacity.");
+                inputConsoleScanner.next(); // Consume the invalid input to prevent an infinite loop
+            }
+        } while (true);
+        //Michelle Luo
+
+        float cost = 0;
+        do {
+            System.out.print("Enter the cost of the console: ");
+            //pettrus Konnoth added minor changes
+            if (inputConsoleScanner.hasNextFloat()) {
+                cost = inputConsoleScanner.nextFloat();
+                break; // Exit the loop when a valid float is provided
+            } else {
+                System.out.println("Invalid cost. Please enter a valid cost.");
+                inputConsoleScanner.next(); // Consume the invalid input to prevent an infinite loop
+            }
+        } while (true);
+
         int energyConsumption = 0;
-        if (inputConsoleScanner.hasNextInt()) {
-            energyConsumption = inputConsoleScanner.nextInt();
-        }
+        do {
+            System.out.print("Enter the energy consumption of the console: ");
+
+            if (inputConsoleScanner.hasNextInt()) {
+                energyConsumption = inputConsoleScanner.nextInt();
+                break; // Exit the loop when a valid int is provided
+            } else {
+                System.out.println("Invalid energy consumption. Please enter a valid energy consumption.");
+                inputConsoleScanner.next(); // Consume the invalid input to prevent an infinite loop
+            }
+        } while (true);
+
+
 
         System.out.print("Does it have a color display (true/false): ");
         boolean hasColorDisplay = false;
         if (inputConsoleScanner.hasNextBoolean()) {
             hasColorDisplay = inputConsoleScanner.nextBoolean();
         }
-        Console newConsole = new Console(name, brand, storage, cost, energyConsumption, hasColorDisplay);
-        return newConsole;
+        return new Console(name, brand, storage, cost, energyConsumption, hasColorDisplay);
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         // Changed to ArrayList (Michelle Luo)
         ArrayList<Console> newConsoleShelf = new ArrayList<Console>();
         ConsoleShelf consoleShelf = new ConsoleShelf(1.8, 0, false, "gray", newConsoleShelf);

@@ -1,7 +1,7 @@
 /* Michelle Luo and Pettrus Konnoth
  * AP CSA
  * UnConsolable: Brand
- * September 28th
+ * October 2nd
  * Period 7
  */
 
