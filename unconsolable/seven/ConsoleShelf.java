@@ -8,6 +8,7 @@
  //imports
 package unconsolable.seven;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ConsoleShelf {
 
@@ -31,6 +32,34 @@ public class ConsoleShelf {
         this.color = "black";
         this.consoleArrayList = consoleInitialization();
     }
+    // finding the average price of the consoles on the shelf (Michelle Luo)
+    public float averagePrice() {//(pettrus Konnoth
+        //i love java
+        if (consoleArrayList.isEmpty()) {//check if the array is empty
+            return 0.0f; // Return 0 if there are no consoles in the list to avoid division by zero
+        }
+
+        float sum = 0.0f;
+        for (Console console : consoleArrayList) {
+            sum += console.getCost(); // getting the sum
+        }
+        return sum / consoleArrayList.size(); // gettting the average
+
+    }
+    // this the method is for calculating the rating for each of the consoles on the shelf based on a formula (Pettrus Konnoth)
+    public List<Float> getConsoleRatings() {
+        List<Float> ratings = new ArrayList<>();
+
+        for (Console console : consoleArrayList) {
+            // Calculate the rating for each console using the formula: cost * storage / energy consumption
+            float consoleRating = (float) (console.getCost() * console.getStorage() / console.getEnergyConsumption());
+            ratings.add(consoleRating);
+        }
+
+        return ratings;
+    }
+
+
 
     //partial constructor console shelf (Pettrus Konnoth)
     public ConsoleShelf(double height){
@@ -132,6 +161,7 @@ public class ConsoleShelf {
 
         return s;
     }
+
 
 
 

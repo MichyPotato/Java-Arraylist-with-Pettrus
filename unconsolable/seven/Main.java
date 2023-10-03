@@ -7,6 +7,8 @@
 package unconsolable.seven;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.List;
+
 
 public class Main {
 
@@ -107,7 +109,9 @@ public class Main {
             System.out.println("3. Update a specific Console on the shelf");
             System.out.println("4. Delete a Console from the shelf");
             System.out.println("5. Print ConsoleShelf");
-            System.out.println("6. Exit");
+            System.out.println("6. find the average price of the consoles on the shelf");
+            System.out.println("7. see the average rating of the consoles on the shelf");
+            System.out.println("8. Exit the program");
             System.out.println("User Input of an above Number:");
             userInput = userInputObject.nextInt();
 
@@ -147,9 +151,31 @@ public class Main {
                 case 5 -> {
                     System.out.println("Printing consoleShelf");
                     System.out.println(consoleShelf);
-                }   
+                    System.out.println("\n");
+                }
+
+                case 6 -> {
+                    // Calculate and print the average price
+                    float averagePrice = consoleShelf.averagePrice();
+                    System.out.println("Average Price of Consoles in shelf: $" + averagePrice);
+                    System.out.println("\n");
+
+                }
+                //case 7 for the rating of the consoles (Michelle Luo)
+                case 7 -> {
+                    // Get the ratings for each console
+                    List<Float> consoleRatings = consoleShelf.getConsoleRatings();
+
+                    // Print the ratings for each console
+                    for (int i = 0; i < consoleRatings.size(); i++) {
+                        System.out.println("Rating for Console " + (i + 1) + ": " + consoleRatings.get(i));
+
+                    }
+                    System.out.println("\n");
+                }
+
                 //leave the program (Pettrus Konnoth)
-                case 6 -> System.out.println("exiting program");
+                case 8 -> System.out.println("exiting program");
                 //Default (Pettrus Konnoth)
                 default -> System.out.println("Invalid choice. Please enter a valid option.");
             }
